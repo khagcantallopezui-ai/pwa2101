@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>To-do List App</title>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
+    <!-- Fallback for iOS -->
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+   <meta name="apple-mobile-web-app-status-bar-style" content="#ffc0cb">
+    <meta name="theme-color" content="#ffc0cb">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <style>
+        body {
+            background-color: lightblue;
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        #taskInput {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+           border-radius: 4px;
+          width: 300px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin-left: 8px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: blue;
+       }
+
+        #taskList {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        #taskList li {
+            margin: 8px 0;
+            padding: 10px 12px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        #taskList li:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<center>
+<body>
+    <h1 class="text-center">This is my To-Do List App</h1>
+    <input type="text" id="taskInput" placeholder="Add a Task">
+    <button onclick="addTask()">ADD</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskList = document.getElementById('taskList');
+        
+        function addTask() {
+            const input = document.getElementById('taskInput');
+            const task = input.value.trim(); // Trim whitespace to avoid empty tasks
+            if (task) {
+                const li = document.createElement('li');
+                li.textContent = task;
+                li.onclick = () => li.remove();
+                taskList.appendChild(li);
+                input.value = "";
+            }
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    </script>
+</body></center>
+</html>
