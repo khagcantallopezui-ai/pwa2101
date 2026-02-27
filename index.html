@@ -5,7 +5,7 @@
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="manifest.json">
-    <!-- Fallback for iOS -->
+
     <link rel="apple-touch-icon" href="icons/icon-192x192.png">
    <meta name="apple-mobile-web-app-status-bar-style" content="#ffc0cb">
     <meta name="theme-color" content="#ffc0cb">
@@ -16,14 +16,14 @@
     
     <style>
         body {
-            background-color: lightblue;
+            background-color: rgb(93, 194, 228);
             margin: 20px;
             font-family: Arial, sans-serif;
         }
 
         #taskInput {
             padding: 8px 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #145670;
            border-radius: 4px;
           width: 300px;
             max-width: 100%;
@@ -33,15 +33,15 @@
         button {
             padding: 8px 16px;
             margin-left: 8px;
-            background-color: #fff;
-            border: 1px solid #ccc;
+            background-color: #ffffff;
+            border: 1px solid #4fd88d;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.2s ease;
         }
 
         button:hover {
-            background-color: blue;
+            background-color: rgb(46, 46, 209);
        }
 
         #taskList {
@@ -77,7 +77,7 @@
         
         function addTask() {
             const input = document.getElementById('taskInput');
-            const task = input.value.trim(); // Trim whitespace to avoid empty tasks
+            const task = input.value.trim(); 
             if (task) {
                 const li = document.createElement('li');
                 li.textContent = task;
